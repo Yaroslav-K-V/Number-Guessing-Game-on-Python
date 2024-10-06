@@ -5,4 +5,4 @@ This Python project is a number guessing game where the user tries to guess a ra
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/Yaroslav-K-V/Number-Guessing-Game-on-Python.git]
+   git clone https://github.com/Yaroslav-K-V/Number-Guessing-Game-on-Python && cd Number-Guessing-Game-on-Python && ./main.py
