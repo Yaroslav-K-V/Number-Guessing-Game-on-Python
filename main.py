@@ -1,6 +1,11 @@
 import random
+import time
 
+
+name=None
 def game(chances):
+    name=input("Please enter your name:\n")
+    start_time = time.time()
     unknown_digit = random.randint(1, 100)
     attempts = 0
 
@@ -20,7 +25,10 @@ def game(chances):
         attempts += 1
 
         if entered_digit == unknown_digit:
-            print(f"Congratulations! You guessed the correct number in {attempts} attempts.")
+            end_time = time.time()
+            time_of_game=end_time-start_time
+            time_of_game=int(time_of_game)
+            print(f"Congratulations! {name} guessed the correct number in {attempts} attempts and in {time_of_game} seconds.")
             return
 
         elif entered_digit > unknown_digit:
@@ -28,7 +36,7 @@ def game(chances):
         elif entered_digit < unknown_digit:
             print(f"Entered digit {entered_digit} is less than the unknown digit.")
 
-    print(f"You lost. The guessed number was {unknown_digit}.")
+    print(f"{name} lost. The guessed number was {unknown_digit}.")
 
 
 def print_help_text():
@@ -62,4 +70,3 @@ while True:
             exit()
         else:
             print("Something gone wrong.")
-
