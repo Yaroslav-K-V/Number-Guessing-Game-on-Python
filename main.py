@@ -1,8 +1,27 @@
 import random
 import time
-
+import os
+import json
 
 name=None
+
+def save_results(name="unnamed",attemts=None,time_of_game=None):
+    file = open("results.txt", "a")
+    results_of_user = json.dumps({"name":name,"attemts":attemts,"time_of_game":time_of_game})
+    file.write('\n'+results_of_user)
+    file.close()
+
+def show_leaderboard():
+    with open("results.txt", "r") as file:
+        for line in file:
+            if line.strip(): 
+                results_of_user = json.loads(line) 
+                print("Player:", results_of_user['name'])
+                print("Attempts:", results_of_user['attemts'])
+                print("Time in game (seconds):", results_of_user['time_of_game'])
+                print("-" * 30)
+
+
 def game(chances):
     name=input("Please enter your name:\n")
     start_time = time.time()
@@ -29,6 +48,8 @@ def game(chances):
             time_of_game=end_time-start_time
             time_of_game=int(time_of_game)
             print(f"Congratulations! {name} guessed the correct number in {attempts} attempts and in {time_of_game} seconds.")
+            save_results(name,attempts,time_of_game)
+
             return
 
         elif entered_digit > unknown_digit:
@@ -46,6 +67,7 @@ def print_help_text():
           "\nEnter 3 for hard level"
           "\nEnter 4 for unlimited level"
           "\nEnter 5 for help"
+          "\nEnter 6 for show a leaderboard"
           "\nEnter 0 for exit ")
 
 while True:
@@ -66,6 +88,8 @@ while True:
             game(chances=999999)
         elif action == 5:
             print_help_text()
+        elif action == 6:
+            show_leaderboard()
         elif action == 0:
             exit()
         else:
