@@ -25,5 +25,4 @@ Random number generation: The game generates a random number within the specifie
 
 Number guessing timer: Using the Python library, the time taken by the user to guess a number is calculated.
 
-Saving records: Using the OS and JSON libraries, the saving of player records is implemented. The text file is created at the first game. As a result of a successful number guess, the user's name, the number of used attempts, and the game time are stored in the file.
-The display of these statistics is also implemented.
+Saving records: Using the OS and JSON libraries, the saving of player records is implemented. The text file is created at the first game. The display of these statistics is also implemented.
