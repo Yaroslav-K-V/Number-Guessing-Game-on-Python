@@ -26,3 +26,5 @@ Random number generation: The game generates a random number within the specifie
 Number guessing timer: Using the Python library, the time taken by the user to guess a number is calculated.
 
 Saving records: Using the OS and JSON libraries, the saving of player records is implemented. The text file is created at the first game. The display of these statistics is also implemented.
+
+Custom Level: Was added the avility to create a custom level for one-play(for future, the custom level will be save for re-plays). Custom level include the ability to change a amount of chances and high level for numbers.
